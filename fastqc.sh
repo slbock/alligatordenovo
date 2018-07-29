@@ -28,6 +28,6 @@ cd $FNAME ##same four loop to navigate through sample subdirectories
 module load FastQC/0.11.5-Java-1.8.0_144
 
 time fastqc * -o /lustre1/sb61937/STIM_fastqc_output -f fastq ##run fastqc with fastq input
-cd .. ##this next three lines are part of the four-loop
+cd .. ##this next three lines are part of the for-loop
 let "i+=1"
 done
