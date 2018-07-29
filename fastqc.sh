@@ -5,7 +5,7 @@
 #PBS -N fastqc
 #PBS -l nodes=1:ppn=24:AMD
 #PBS -l mem=20gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=24:00:00
 
 cd /lustre1/sb61937/STIM_READS
 mkdir /lustre1/sb61937/STIM_fastqc_output
