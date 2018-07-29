@@ -5,7 +5,7 @@
 #PBS -N gunzip
 #PBS -l nodes=1:ppn=1:tcgnode
 #PBS -l mem=100gb
-#PBS -l walltime=48:00:00
+#PBS -l walltime=24:00:00
 #PBS -M samantha.bock@uga.edu
 
 
