@@ -37,3 +37,4 @@ python FilterUncorrectabledPEfastq.py -1 138599-8_S15_L004_R1_001.cor.fq -2 1385
 python FilterUncorrectabledPEfastq.py -1 138599-90_S19_L001_R1_001.cor.fq -2 138599-90_S19_L001_R2_001.cor.fq -o fixed 2>&1 > rmunfixable_90_1.out
 python FilterUncorrectabledPEfastq.py -1 138599-90_S19_L002_R1_001.cor.fq -2 138599-90_S19_L002_R2_001.cor.fq -o fixed 2>&1 > rmunfixable_90_2.out
 python FilterUncorrectabledPEfastq.py -1 138599-90_S19_L003_R1_001.cor.fq -2 138599-90_S19_L003_R2_001.cor.fq -o fixed 2>&1 > rmunfixable_90_3.out
+python FilterUncorrectabledPEfastq.py -1 138599-90_S19_L004_R1_001.cor.fq -2 138599-90_S19_L004_R2_001.cor.fq -o fixed 2>&1 > rmunfixable_90_4.out
