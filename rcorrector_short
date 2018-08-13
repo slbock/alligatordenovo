@@ -1,0 +1,14 @@
+#PBS -S /bin/bash
+#PBS -q batch
+#PBS -M samantha.bock@uga.edu
+#PBS -m ae
+#PBS -N rCorrector1.0
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=48:00:00
+#PBS -l mem=20gb
+
+cd /lustre1/sb61937
+mkdir rCorrector_Output
+cd rCorrector_Output
+module load Rcorrector/1.0.2-foss-2016b
+run_rcorrector.pl -1 /lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L001_R1_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L002_R1_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L003_R1_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L004_R1_001.fastq -2 /lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L001_R2_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L002_R2_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L003_R2_001.fastq,/lustre1/sb61937/STIM_READS/138599-110-47576580/138599-110_S27_L004_R2_001.fastq -t 4 > rCorrector_110.log
