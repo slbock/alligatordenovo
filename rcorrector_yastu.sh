@@ -2,7 +2,7 @@
 #PBS -q batch
 #PBS -M samantha.bock@uga.edu
 #PBS -m ae
-#PBS -N rCorrector1.0
+#PBS -N rCorrector
 #PBS -l nodes=1:ppn=4
 #PBS -l walltime=48:00:00
 #PBS -l mem=20gb
