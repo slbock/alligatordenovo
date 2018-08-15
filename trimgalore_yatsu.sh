@@ -1,7 +1,7 @@
 #PBS -S /bin/bash
 #PBS -N TrimGalore6.0
 #PBS -q batch
-#PBS -l nodes=1:ppn=1:AMD
+#PBS -l nodes=1:ppn=4:AMD
 #PBS -l walltime=24:00:00
 #PBS -l mem=20gb
 
