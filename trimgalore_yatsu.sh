@@ -3,7 +3,7 @@
 #PBS -q batch
 #PBS -l nodes=1:ppn=1:AMD
 #PBS -l walltime=24:00:00
-#PBS -l mem=10gb
+#PBS -l mem=20gb
 
 
 cd /lustre1/sb61937
