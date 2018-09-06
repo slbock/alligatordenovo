@@ -35,7 +35,9 @@
       - each graph is processed independently to extract full-length splicing isoforms and tease apart transcripts derived from paralogous genes
 
       [1] Inchworm assembles the RNA-seq data into the unique sequences of transcripts, often generating full-length transcripts of the dominant isoform, but then reports just the unique portions of alternatively spliced transcripts
+      
       [2] Chrysalis clusters the inchworm contigs into clusters and constructs complete de Bruijn graphs for each cluster. Each cluster represents the full transcriptional complexity for a given gene (or sets of genes that share sequences in common). Chrysalis then partitions the full read set among these disjoint graphs.
+
       [3] Butterfly then processes the individual graphs in parallel, tracing the paths that reads and pairs of reads take within the graph, ultimately reporting full-length transcripts for alternatively spliced isoforms, and teasing apart transcripts that correspond to paralogous genes
 
   - Trinity performs best with strand-specific data, in which case sense and antisense transcripts can be resolved
