@@ -1,5 +1,5 @@
 #PBS -S /bin/bash
-#PBS -N Trinity1.0
+#PBS -N Trinity2.0
 #PBS -q batch
 #PBS -l nodes=1:ppn=16
 #PBS -l walltime=48:00:00
