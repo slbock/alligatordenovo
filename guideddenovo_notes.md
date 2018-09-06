@@ -73,7 +73,7 @@ Below is a summary of the current progress towards implementing a genome-guided 
         ```
         - This error seems to indicate that there is a missing argument in the hisat2 command
 
-9/6/18
+## 9/6/18
 
 Continuing to work on troubleshooting Hisat2 alignment (STEP 5) and moving forward with Trinity script (STEP 6)
 
