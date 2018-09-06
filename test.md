@@ -1,13 +1,12 @@
-#PBS -S /bin/bash
-#PBS -N SAMtools1.0
-#PBS -q batch
-#PBS -l nodes=1:ppn=2
-#PBS -l walltime=48:00:00
-#PBS -l mem=20gb
+# Header 
 
-module load SAMtools/1.6-foss-2016b
+## Header 2
 
-cd /lustre1/sb61937/STIM_READS_postqc
+*italic*
 
-#use samtools to merge the sorted bam files for all samples
-samtools merge STIM2014.sort.bam *.sort.bam
+**bold**
+
+```
+Trinity --genome_guided_bam STIM2014.sort.bam --seqType fq --max_memory 100G --CPU 8 --no_version_check --full_cleanup --SS_lib_type RF --output /lustre1/sb61937/TRINITY
+
+```
