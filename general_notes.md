@@ -26,6 +26,8 @@
       - -q - Reads are FASTQ files (extension .fq or .fastq)
     - Spliced alignment options
       - --dta/--downstream-transcriptome-assembly report alignments tailored for transcript assemblers including StringTie. With this option, Hisat2 requires longer anchor lengths for de novo discovery of splice sites. This leads to fewer alignments with short-anchors, which helps transcript assemblers improve significantly in computation and memory usage
+    - hisat2-inspect extracts information from a Hisat2 index about what kind of index it is and what reference sequences were used to build it
+      - -s/--summary - print a summary that includes information about index settings, as well as the names and lengths of the input sequences
 
 *Trinity*
   - **Intro** (from https://github.com/trinityrnaseq/trinityrnaseq/wiki)
@@ -35,7 +37,7 @@
       - each graph is processed independently to extract full-length splicing isoforms and tease apart transcripts derived from paralogous genes
 
       [1] Inchworm assembles the RNA-seq data into the unique sequences of transcripts, often generating full-length transcripts of the dominant isoform, but then reports just the unique portions of alternatively spliced transcripts
-      
+
       [2] Chrysalis clusters the inchworm contigs into clusters and constructs complete de Bruijn graphs for each cluster. Each cluster represents the full transcriptional complexity for a given gene (or sets of genes that share sequences in common). Chrysalis then partitions the full read set among these disjoint graphs.
 
       [3] Butterfly then processes the individual graphs in parallel, tracing the paths that reads and pairs of reads take within the graph, ultimately reporting full-length transcripts for alternatively spliced isoforms, and teasing apart transcripts that correspond to paralogous genes
