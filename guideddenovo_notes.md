@@ -13,7 +13,7 @@ Below is a summary of the current progress towards implementing a genome-guided 
     4) Trim adapter sequences from fastq files using TrimGalore
     5) Align trimmed reads to reference genome
     6) Run Trinity guided de-novo transcriptome assembly with aligned reads
-    7) Evaluate transcriptome quality using DETONATE
+    7) Evaluate transcriptome quality
 
 *STEP 1: Examine read quality with FastQC*
 
@@ -85,5 +85,114 @@ Continuing to work on troubleshooting Hisat2 alignment (STEP 5) and moving forwa
   - The alignment serves to partition the reads according to locus before performing de-novo transcriptome assembly
   - Because the alignment is simply used to cluster reads by locus it is likely not critical for the annotation file to be used for the alignment
   - Thus, Trinity guided de-novo transcriptome assembly can be tested on the .bam files generated from the first alignment, while I troubleshoot the alignment with the new index
-
   - trinity_test.sh script used for first pass
+
+  - trinity_final.sh script used for final run
+  - results of annotation-free genome-guided transcriptome assembly:
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':	179559
+Total trinity transcripts:	207272
+Percent GC: 47.04
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+	Contig N10: 6147
+	Contig N20: 4788
+	Contig N30: 3784
+	Contig N40: 2991
+	Contig N50: 2263
+
+	Median contig length: 353
+	Average contig: 902.90
+	Total assembled bases: 187146714
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+	Contig N10: 5665
+	Contig N20: 4176
+	Contig N30: 3106
+	Contig N40: 2184
+	Contig N50: 1400
+
+	Median contig length: 319
+	Average contig: 697.13
+	Total assembled bases: 125175477
+
+## 9/10/18
+*STEP 5: Align trimmed reads to reference genome using Hisat2 (CONTINUED)*
+- Built new index from reference genome and annotation file and hisat2 alignment worked
+
+*STEP 6: Run Trinity guided de-novo transcriptome assembly with aligned reads*
+- Used samtools_sort.sh to sort resulting sam files from hisat2 alignment
+- Used samtools_merge.sh to merge sorted bam files, produced single coordinate sorted bam file which was subsequently supplied to Trinity
+- Basic alignment statistics for transcriptome assembly based on alignment using annotations:
+
+################################
+## Counts of transcripts, etc.
+################################
+Total trinity 'genes':	184798
+Total trinity transcripts:	210886
+Percent GC: 47.05
+
+########################################
+Stats based on ALL transcript contigs:
+########################################
+
+	Contig N10: 6107
+	Contig N20: 4723
+	Contig N30: 3713
+	Contig N40: 2916
+	Contig N50: 2191
+
+	Median contig length: 348
+	Average contig: 878.41
+	Total assembled bases: 185245301
+
+
+#####################################################
+## Stats based on ONLY LONGEST ISOFORM per 'GENE':
+#####################################################
+
+	Contig N10: 5636
+	Contig N20: 4135
+	Contig N30: 3051
+	Contig N40: 2138
+	Contig N50: 1361
+
+	Median contig length: 318
+	Average contig: 688.38
+	Total assembled bases: 127211377
+
+
+*STEP 7: Evaluate transcriptome quality*
+
+- *A) Quantified read support for transcriptome assembly by aligning reads back to the transcriptome using bowtie2*
+- Basic summary of the bowtie2 alignment:
+
+14152259 reads; of these:
+  14152259 (100.00%) were paired; of these:
+    4558479 (32.21%) aligned concordantly 0 times
+    4602997 (32.52%) aligned concordantly exactly 1 time
+    4990783 (35.26%) aligned concordantly >1 times
+    ----
+    4558479 pairs aligned concordantly 0 times; of these:
+      664404 (14.58%) aligned discordantly 1 time
+    ----
+    3894075 pairs aligned 0 times concordantly or discordantly; of these:
+      7788150 mates make up the pairs; of these:
+        1757285 (22.56%) aligned 0 times
+        1991792 (25.57%) aligned exactly 1 time
+        4039073 (51.86%) aligned >1 times
+93.79% overall alignment rate
+
+- *B) Examine representation of full-length reconstructed protein-coding genes with BLAST+*
+  - Built a blastable database using the SwissProt database
+  - Running Blastx on 20k chunks of the genome-guided transcriptome
