@@ -89,7 +89,7 @@ Continuing to work on troubleshooting Hisat2 alignment (STEP 5) and moving forwa
 
   - trinity_final.sh script used for final run
   - results of annotation-free genome-guided transcriptome assembly:
-
+```
 ################################
 ## Counts of transcripts, etc.
 ################################
@@ -125,6 +125,7 @@ Stats based on ALL transcript contigs:
 	Median contig length: 319
 	Average contig: 697.13
 	Total assembled bases: 125175477
+  ```
 
 ## 9/10/18
 *STEP 5: Align trimmed reads to reference genome using Hisat2 (CONTINUED)*
@@ -134,7 +135,7 @@ Stats based on ALL transcript contigs:
 - Used samtools_sort.sh to sort resulting sam files from hisat2 alignment
 - Used samtools_merge.sh to merge sorted bam files, produced single coordinate sorted bam file which was subsequently supplied to Trinity
 - Basic alignment statistics for transcriptome assembly based on alignment using annotations:
-
+```
 ################################
 ## Counts of transcripts, etc.
 ################################
@@ -170,13 +171,13 @@ Stats based on ALL transcript contigs:
 	Median contig length: 318
 	Average contig: 688.38
 	Total assembled bases: 127211377
-
+```
 
 *STEP 7: Evaluate transcriptome quality*
 
 - *A) Quantified read support for transcriptome assembly by aligning reads back to the transcriptome using bowtie2*
 - Basic summary of the bowtie2 alignment:
-
+```
 14152259 reads; of these:
   14152259 (100.00%) were paired; of these:
     4558479 (32.21%) aligned concordantly 0 times
@@ -192,6 +193,7 @@ Stats based on ALL transcript contigs:
         1991792 (25.57%) aligned exactly 1 time
         4039073 (51.86%) aligned >1 times
 93.79% overall alignment rate
+```
 
 - *B) Examine representation of full-length reconstructed protein-coding genes with BLAST+*
   - Built a blastable database using the SwissProt database
